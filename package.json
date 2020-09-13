@@ -1,0 +1,25 @@
+{
+  "name": "cours-statictics-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fucking casper/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "casperjs": "^1.1.4",
+    "es6-promise": "^4.2.8",
+    "excel4node": "^1.7.2",
+    "exceljs": "^4.1.1",
+    "http": "0.0.1-security",
+    "isomorphic-fetch": "^2.2.1",
+    "jsdom": "^16.4.0",
+    "node-schedule": "^1.3.2",
+    "nodemailer": "^6.4.11",
+    "opn": "^6.0.0",
+    "phantomjs": "^2.1.7",
+    "slimerjs": "^1.0.0"
+  }
+}
