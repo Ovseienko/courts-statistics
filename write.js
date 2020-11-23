@@ -1,4 +1,5 @@
 var excel = require('exceljs');
+var moment = require('moment-timezone');
 const { DREAM, KURENIVKA, MAIAK, POZNIAKY, PROTASIV, TEREMKY, clubNames } = require("./mappers");
 
 const fileName = 'Statistics.xlsx';
@@ -14,6 +15,7 @@ module.exports = {
 
             worksheet.columns = [
                 { header: 'Date', key: 'date' },
+                { header: 'Time', key: 'time' },
                 { header: 'Free', key: 'free' },
                 { header: 'Occupied', key: 'occupied' },
             ]
@@ -30,10 +32,13 @@ module.exports = {
                     const row = sheet.actualRowCount;
                     const nextRow = row + 1;
                     const dateNow = new Date();
+                    const localizedDate = moment(dateNow).tz("Europe/Athens").format();
                     const cellDate = sheet.getCell("A" + nextRow);
-                    const cellFree = sheet.getCell("B" + nextRow);
-                    const cellOccupied = sheet.getCell("C" + nextRow);
-                    cellDate.value = dateNow.toLocaleDateString() +": " + dateNow.toLocaleTimeString();
+                    const cellTime = sheet.getCell("B" + nextRow);
+                    const cellFree = sheet.getCell("C" + nextRow);
+                    const cellOccupied = sheet.getCell("D" + nextRow);
+                    cellDate.value = localizedDate.split("+")[0].split("T")[0];
+                    cellTime.value = localizedDate.split("+")[0].split("T")[1];
                     cellFree.value = clubData.free;
                     cellOccupied.value = clubData.occupied;
                 });

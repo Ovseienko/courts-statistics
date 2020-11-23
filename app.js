@@ -1,5 +1,5 @@
 const countCourts = require("./countCourts");
-const write = require("./write");
+// const write = require("./write");
 
 function format(str){
     return str.toString().length < 2 ? "0" + str : str;
@@ -23,5 +23,4 @@ module.exports = {
 
 
 
-
-write.createSheet();
+// write.createSheet();
